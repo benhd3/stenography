@@ -25,3 +25,11 @@ def get_pixel_map(img):
     """
     pixels = img.load()
     return pixels
+
+
+def get_image_dim(img):
+    """
+    :param img: image object
+    :return: image dimensions
+    """
+    return img.size
