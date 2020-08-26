@@ -33,3 +33,15 @@ def get_image_dim(img):
     :return: image dimensions
     """
     return img.size
+
+
+def get_lsb(dim):
+    """
+    Gets the number of least significant bits that can be used for encryption
+    :param dim: dimensions of image
+    :return: number of least significant bits
+    """
+    # temp bytes_per_pix till proper implementation
+    bytes_per_pix = 3
+    lsbs = dim[0] * dim[1] * bytes_per_pix  # least significant bits
+    return lsbs
