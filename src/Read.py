@@ -1,6 +1,7 @@
 from PIL import Image
 import PIL
 
+
 def get_image(src):
     """
     :param src: image path
@@ -16,6 +17,7 @@ def get_image(src):
         raise PIL.UnidentifiedImageError
     return img
 
+
 def get_pixel_map(img):
     """
     :param img: Image object
@@ -23,3 +25,11 @@ def get_pixel_map(img):
     """
     pixels = img.load()
     return pixels
+
+
+def get_image_dim(img):
+    """
+    :param img: image object
+    :return: image dimensions
+    """
+    return img.size
