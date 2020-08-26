@@ -33,3 +33,10 @@ def get_image_dim(img):
     :return: image dimensions
     """
     return img.size
+
+
+def get_img_bytes(dim):
+    # temp bytes_per_pix till proper implementation
+    bytes_per_pix = 3
+    bytes = dim[0] * dim[1] * bytes_per_pix
+    return bytes
