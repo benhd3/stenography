@@ -15,3 +15,11 @@ def get_image(src):
         print("File is not an image")
         raise PIL.UnidentifiedImageError
     return img
+
+def get_pixel_map(img):
+    """
+    :param img: Image object
+    :return: pixel map of image object
+    """
+    pixels = img.load()
+    return pixels
