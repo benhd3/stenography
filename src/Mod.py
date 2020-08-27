@@ -37,3 +37,18 @@ def denary_binary(x, forcebitlen=None):
         else:
             out += "0"
     return out
+
+
+def binary_denary(bin):
+    """
+    Takes a binary string and returns a denary value
+    :param bin: binary string
+    :return: denary value
+    """
+    total = 0
+    count = 0
+    for i in range(len(bin) - 1, -1, -1):
+        if bin[i] == "1":
+            total += 2**count
+        count += 1
+    return total
