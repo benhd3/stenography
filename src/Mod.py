@@ -22,21 +22,17 @@ def denary_binary(x, forcebitlen=None):
     """
     Takes a denary value and returns binary in a string
     :param x: denary num to be converted
-    :param forcebitlen: returns binary string of certain length
+    :param forcebitlen: returns binary string of certain length (will not shorten a binary string)
     :return: binary string
     """
-    out = ""
-    if forcebitlen is not None:
-        topbound = forcebitlen
-    else:
-        topbound = math.floor(math.log(x, 2))
-    for i in range(topbound, -1, -1):
-        if x - 2**i >= 0:
-            out += "1"
-            x -= 2**i
-        else:
-            out += "0"
-    return out
+    bin = format(x, "b")
+
+    if forcebitlen is None:
+        return bin
+
+    if len(bin) < forcebitlen:
+        bin = "0" * (forcebitlen - len(bin)) + bin
+    return bin
 
 
 def binary_denary(bin):
@@ -49,6 +45,11 @@ def binary_denary(bin):
     count = 0
     for i in range(len(bin) - 1, -1, -1):
         if bin[i] == "1":
-            total += 2**count
+            total += 2 ** count
         count += 1
     return total
+
+
+def text_binary(text):
+    for i in text:
+        print(format(ord(i), "b"))
