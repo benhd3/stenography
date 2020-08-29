@@ -1,6 +1,26 @@
 from .Read import *
 import os
-import math
+
+
+def encrypt_image_lsb(img_src, plaintext_src, img_out=None):
+    """
+    :param img_src: file path to image which is to be encrypted
+    :param img_out: directory to export image to, default ./out folder
+    :param plaintext_src: the text file to be encrypted into the image
+    :return: Exports encrypted image file
+    """
+    if not os.path.isfile(img_src):
+        raise FileNotFoundError("Image file not found")
+
+    if not os.path.isfile(plaintext_src):
+        raise FileNotFoundError("Plaintext file not found")
+
+    if img_out is not None:
+        if not os.path.isdir(img_out):
+            raise NotADirectoryError("Image export path not found")
+
+    # Display image properties
+    analyse_image(img_src)
 
 
 def analyse_image(src):
@@ -48,8 +68,3 @@ def binary_denary(bin):
             total += 2 ** count
         count += 1
     return total
-
-
-def text_binary(text):
-    for i in text:
-        print(format(ord(i), "b"))
